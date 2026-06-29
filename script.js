@@ -112,13 +112,14 @@ function createSquare(col){
  *                                       subcanvases antes de la operación.
  */
 function removeSquares(squaresPerRowCol, subCanvasNodeList){
+    const subCanvases = Array.from(subCanvasNodeList);
 
-    const deletedSubCanvNodeList = subCanvasNodeList.slice(0, squaresPerRowCol);
+    const deletedSubCanvNodeList = subCanvases.slice(0, squaresPerRowCol);
     for(const subCanv of deletedSubCanvNodeList){
         subCanv.remove();
     }
 
-    const newSubCanvNodeList = subCanvasNodeList.slice(squaresPerRowCol);
+    const newSubCanvNodeList = subCanvases.slice(squaresPerRowCol);
 
     newSubCanvNodeList.forEach(subCanvas => {
         for(let col = 0; col < squaresPerRowCol; col++){
